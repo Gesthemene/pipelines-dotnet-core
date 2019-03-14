@@ -33,7 +33,7 @@ steps:
   displayName: 'Push Package to Octopus'
   inputs:
     OctoConnectedServiceName: 'Octopus Deploy'
-    Package: '$(Build.ArtifactStagingDirectory)\Azure.DevOps.Test.$(packageVersion).nupkg'
+    Package: '$(Build.ArtifactStagingDirectory)/Azure.DevOps.Test.$(packageVersion).nupkg'
 
 
 
