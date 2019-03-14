@@ -26,7 +26,7 @@ steps:
   inputs:
     PackageId: Azure.DevOps.Test
     PackageVersion: '$(packageVersion)'
-    SourcePath: '$(Build.SourcesDirectory)\published'
+    SourcePath: '$(Build.ArtifactStagingDirectory)'
     OutputPath: '$(Build.ArtifactStagingDirectory)'
 
 - task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-push.OctopusPush@3
