@@ -2,6 +2,8 @@
 
 For information on how to use this repository, see docs for [.NET Core](https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core).
 
+[![Build Status](https://dev.azure.com/DavidHarcourt0158/dotnet-core-demo/_apis/build/status/Gesthemene.pipelines-dotnet-core?branchName=master)](https://dev.azure.com/DavidHarcourt0158/dotnet-core-demo/_build/latest?definitionId=1&branchName=master)
+
 | Example | Build status |
 |---------|--------------|
 | Build | [![Build status](https://dev.azure.com/pipelines-docs/docs/_apis/build/status/dotnetcore/dotnetcore)](https://dev.azure.com/pipelines-docs/docs/_build/latest?definitionId=1) |
