@@ -2,10 +2,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core?view=vsts
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: Hosted VS2017
   
 variables:
   buildConfiguration: 'Release'
+  packageVersion: '0.0.$(Build.BuildNumber)'
 
 steps:
 - script: |
@@ -20,4 +21,19 @@ steps:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 
-- task: PublishBuildArtifacts@1
+- task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-pack.OctopusPack@3
+  displayName: 'Package for Octopus Deploy'
+  inputs:
+    PackageId: Azure.DevOps.Test
+    PackageVersion: '$(packageVersion)'
+    SourcePath: '$(Build.SourcesDirectory)\published'
+    OutputPath: '$(Build.ArtifactStagingDirectory)'
+
+- task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-push.OctopusPush@3
+  displayName: 'Push Package to Octopus'
+  inputs:
+    OctoConnectedServiceName: 'Octopus Deploy'
+    Package: '$(Build.ArtifactStagingDirectory)\Azure.DevOps.Test.$(packageVersion).nupkg'
+
+
+
