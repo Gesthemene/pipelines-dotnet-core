@@ -6,7 +6,7 @@ pool:
   
 variables:
   buildConfiguration: 'Release'
-  packageVersion: '0.0.$(Build.BuildNumber)'
+  packageVersion: '0.0.$(Build.BuildID)'
 
 steps:
 - script: |
